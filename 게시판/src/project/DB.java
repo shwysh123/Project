@@ -23,7 +23,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class DB extends MyWriter_GUI {
+public class DB extends MyWriteMain {
 
 	public static void main(String[] args) {
 //		new DB_GUI();
