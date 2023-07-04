@@ -6,7 +6,6 @@ public class CommentDto {
 	private String id;
 	private String comment;
 	private String date;
-	
 
 
 	//	디폴트 생성자

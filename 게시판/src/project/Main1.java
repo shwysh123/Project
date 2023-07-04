@@ -131,7 +131,7 @@ class Main_GUI extends JFrame implements ActionListener, KeyListener {
 			}
 		});
 		
-		String[] columns = { "number", "id", "title", "작성날짜"};
+		String[] columns = { "number", "글쓴이", "글제목", "작성날짜"};
 		btn5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
