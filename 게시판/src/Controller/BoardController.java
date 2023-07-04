@@ -108,7 +108,7 @@ public class BoardController {
 		
 		Boolean rValue = false;
 		try {
-			rValue = service.boardDelete(id); //여기랑 이어져서 모르겠어요
+			rValue = service.boardDelete(id); 
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

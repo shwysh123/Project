@@ -95,16 +95,9 @@ public class BoardService {
 	}
 	
 	//글 id로 조회
-	public List<BoardDto> boardsearch_id(BoardDto dto) throws Exception{
-		List<BoardDto> list = new ArrayList();
-		BoardDto dto = null;
-		pstmt = conn.prepareStatement("select * from tbl_contents where id = ?");
-		pstmt.setString(1, id);
-		rs = pstmt.executeQuery;
-		
+	public List<BoardDto> boardsearch_id(String id) throws Exception{
 		System.out.println("BoardService's boardsearch()");
 		
-		return false;
 	}
 	
 	//글 title로 조회
