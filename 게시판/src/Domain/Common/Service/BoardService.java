@@ -40,7 +40,7 @@ public class BoardService {
 	// 글 하나 조회
 	public BoardDto getBoard(int number) throws Exception {
 		System.out.println("BoardService's getBoard()");
-		return Bdao.select(number);
+		return Bdao.select_one(number);
 	}
 
 	// 글 등록하기(회원)

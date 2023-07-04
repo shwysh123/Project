@@ -73,12 +73,30 @@ public class BoardDao {
 	}
 	
 	//글 하나 조회(number로 조회)
-	public BoardDto select(int number) {
+	public BoardDto select_one(int number) throws Exception {
 		
+		BoardDto dto = null;
+		pstmt = conn.prepareStatement("select * from tbl_contents where number = ?");
+		pstmt.setInt(1, number);
+		rs=pstmt.executeQuery();
+		if(rs!=null) {
+			rs.next();
+			dto = new BoardDto();
+			dto.setNumber(rs.getInt("number"));
+			dto.setId(rs.getString("id"));
+			dto.setTitle(rs.getString("title"));
+			dto.setDate(rs.getString("date"));
+			dto.setHits(rs.getInt("hits"));
+			rs.close();
+		}
+		pstmt.close();
+		return dto;
+	}
+	
+
 		//여기에 DB연결 코드를 입력해야함
 		//number로 글 하나를 받아오는 것
-		return null;
-	}
+
 	
 //	id 나 title로 글 조회
 	public List<BoardDto> search_id(String id) throws Exception{
@@ -148,7 +166,7 @@ public class BoardDao {
 		return pstmt.executeUpdate();
 	}
 //	내가 쓴 글 삭제
-	public int delete(String id) throws Exception{  //여기도 이어져요
+	public int delete(String id) throws Exception{ 
 		pstmt = conn.prepareStatement("delete from tbl_board where id = ?");
 		pstmt.setString(1, id);
 		int result = pstmt.executeUpdate();
