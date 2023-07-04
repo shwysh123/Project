@@ -97,7 +97,7 @@ public class BoardService {
 	//글 id로 조회
 	public List<BoardDto> boardsearch_id(String id) throws Exception{
 		System.out.println("BoardService's boardsearch()");
-		
+		return Bdao.select();
 	}
 	
 	//글 title로 조회

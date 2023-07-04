@@ -9,7 +9,7 @@ import Domain.Common.Service.BoardService;
 
 public class BoardController {
 
-	private static final BoardDto Dto = null;
+	private static final BoardDto dto = null;
 	private BoardService service; // 파라미터를 보드서비스로 전달하기 위한 변수 생성
 
 	public BoardController() {
