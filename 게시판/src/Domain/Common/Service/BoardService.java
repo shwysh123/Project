@@ -97,21 +97,21 @@ public class BoardService {
 	//글 id로 조회
 	public List<BoardDto> boardsearch_id(String id) throws Exception{
 		System.out.println("BoardService's boardsearch()");
-		return Bdao.select();
+		return Bdao.search_id(id);
 	}
 	
 	//글 title로 조회
-	public boolean boardsearch_title(BoardDto dto) throws Exception{
+	public List<BoardDto> boardsearch_title(String title) throws Exception{
 		System.out.println("BoardService's boardsearch_title()");
+		return Bdao.search_title(title);
 		
-		return false;
 	}
 	
 	//내가 쓴 글 조회
-	public boolean boardsearch_mine(BoardDto dto) throws Exception{
+	public List<BoardDto> boardsearch_mine(String id) throws Exception{
 		System.out.println("BoardService's boardsearch_mine()");
 		
-		return false;
+		return Bdao.select_mine(id);
 	}
 	
 	//Comment Area----------------------------------------------------
