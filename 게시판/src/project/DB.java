@@ -116,7 +116,7 @@ class DB_GUI extends JFrame implements ActionListener, KeyListener {
 			panel.add(tbl1);
 			panel.add(tbl2);
 			panel.add(tbl3);
-			panel.add(tbl5);
+			panel.add(tbl5); 
 			panel.add(comment); // 댓글쓰는창 추가
 			panel.add(uploadBtn);
 
