@@ -16,7 +16,7 @@ public class BoardDaoImpl extends ConnectionPool implements BoardDao {
 		return instance;
 	}
 
-	private BoardDaoImpl() {
+	BoardDaoImpl() {
 
 	}
 

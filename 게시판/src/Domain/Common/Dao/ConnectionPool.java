@@ -10,7 +10,7 @@ public abstract class ConnectionPool {
 	protected String pw;
 	protected String url;
 
-	protected static Connection conn;
+	protected Connection conn;
 	protected PreparedStatement pstmt;
 	protected ResultSet rs;
 

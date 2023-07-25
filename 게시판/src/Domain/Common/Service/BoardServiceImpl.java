@@ -47,7 +47,7 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardDto> boardsearch_mine(String id) throws Exception {
 		System.out.println("BoardService's boardsearch_mine()");
 
-		return Bdao.select_mine(id);
+		return Bdao.search_mine(id);
 	}
 
 	// 글 id로 조회
