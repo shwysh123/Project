@@ -18,7 +18,7 @@ public class MainController implements SubController {
 			
 			// view로 이동
 		try {
-			req.getRequestDispatcher("/WEB-INF/view/main.jsp").forward(req,resp);
+			req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req,resp);
 		}
 		 catch (ServletException e) {
 			// TODO Auto-generated catch block
