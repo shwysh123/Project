@@ -90,7 +90,7 @@ label {
 			style=" width: 420px; height: 280px; background-color: black; padding-top: 10px; text-align: center;">
 			<input style="border-radius:5px;" type="text" placeholder="아이디" /> <input style="border-radius:5px;"
 				type="password" placeholder="비밀번호" />
-			<div class="ex2">\
+			<div class="ex2">
 				<%-- <c:if test=""></c:if>  c:if를 사용해야함. 불일치시 "아이디 또는 비밀번호를 확인하세요." 팝업과 닫기 버튼 생성--%>
 					<a href=<c:url value="/login.do" /> class="ex1"
 						style="text-decoration: none; color: black; "><button
