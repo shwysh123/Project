@@ -17,13 +17,12 @@ public class BoardDaoImpl extends ConnectionPool implements BoardDao {
 
 //	내가 쓴 글 삭제
 	@Override
-	public int delete(String id) throws Exception {
+	public boolean boardDelete(String id) throws Exception {
 		pstmt = conn.prepareStatement("delete from tbl_board where id = ?");
-		pstmt.setString(1, id);
-		int result = pstmt.executeUpdate();
+		pstmt.setString(1,id);
 		pstmt.close();
 
-		return result;
+		return true;
 	}
 
 }
