@@ -26,6 +26,8 @@ import Controller.member.MemberSearchController;
 import Controller.member.MemberUpdateController;
 import Controller.member.auth.LogoutController;
 
+
+
 public class FrontController extends HttpServlet {
 
 	private Map<String, SubController> map = new HashMap();
@@ -69,10 +71,12 @@ public class FrontController extends HttpServlet {
 		//main
 		map.put(projectPath+"/main.do",new MainController());
 
+	
 	}
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		
 //        req.setCharacterEncoding("UTF-8");
 //        resp.setCharacterEncoding("UTF-8");
