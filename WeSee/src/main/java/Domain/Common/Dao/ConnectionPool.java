@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public abstract class ConnectionPool {
+public class ConnectionPool {
 	protected String id;
 	protected String pw;
 	protected String url;
@@ -16,10 +16,10 @@ public abstract class ConnectionPool {
 	
 
 	
-	ConnectionPool(){
+	public ConnectionPool(){
 		id="root";
 		pw="1234";
-		url="jdbc:mysql://localhost:3306/bookdb";
+		url="jdbc:mysql://localhost:3306/게시판";
 		
 		try {
 			if(conn==null) {
