@@ -30,17 +30,17 @@ public class BoardDeleteController extends HttpServlet implements SubController 
 	if(result==true)
 	{
 		req.setAttribute("msg","해당글이 삭제되었습니다.");
-		req.getRequestDispatcher("/myinfo.jsp").forward(req,resp);
+		req.getRequestDispatcher("/mypage.jsp").forward(req,resp);
 		}else
 		{
 		req.setAttribute("msg","해당글이 없습니다.");
-		req.getRequestDispatcher("/myinfo.jsp").forward(req,resp);
+		req.getRequestDispatcher("/mypage.jsp").forward(req,resp);
 		}
 	}
 		catch(Exception e) {
 		e.printStackTrace();
 		req.setAttribute("msg", "시도하신 요청이 실패하였습니다.");
-		req.getRequestDispatcher("/myinfo.jsp").forward(req, resp);
+		req.getRequestDispatcher("/mypage.jsp").forward(req, resp);
 	}
 }
 	
