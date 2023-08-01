@@ -2,9 +2,8 @@ package Domain.Common.Service;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import Domain.Common.Dto.MemberDto;
+import jakarta.servlet.http.HttpServletRequest;
 
 public interface MemberService {
 

@@ -53,32 +53,19 @@ body {
 </head>
 <body>
 
-	<div class="wrapper">
-		<header>
-		<h1><a href="/WeSee/">WeSee</a></h1>
-			<nav></nav>
-		</header>
-		<main>
-			<section>
-				<div class=show--block>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-				</div>
+	<div class="post">
+        <p><strong>게시물 ID:</strong> <%= id %></p>
+        <p><strong>내용:</strong> <%= contents %></p>
+        <p><strong>날짜:</strong> <%= date %></p>
+        <form action="/deletePost.jsp" method="post">
+            <input type="hidden" name="number" value="<%= number %>">
+            <input type="submit" value="삭제">
+        </form>
+    </div>
 
 
 
-			</section>
-			<section></section>
-			<section></section>
-		</main>
-		<footer></footer>
-	</div>
-
+		
 
 </body>
 </html>

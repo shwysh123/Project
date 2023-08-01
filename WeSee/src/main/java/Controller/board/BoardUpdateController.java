@@ -1,11 +1,10 @@
 package Controller.board;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import Controller.SubController;
 import Domain.Common.Service.BoardService;
 import Domain.Common.Service.BoardServiceImpl;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class BoardUpdateController  implements SubController{
 
