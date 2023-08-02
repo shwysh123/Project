@@ -8,7 +8,7 @@ import Domain.Common.Dto.BoardDto;
 public interface BoardService {
 
 	// 글 모두 조회하기(비회원,회원,관리자 모두)
-	List<BoardDto> getAllBoard(String keyfield,String keyword,String criteria) throws Exception;
+	List<BoardDto> getAllBoard() throws Exception;
 
 	// 글 하나 조회
 	BoardDto getBoard(int number) throws Exception;
@@ -24,13 +24,13 @@ public interface BoardService {
 	boolean boardDelete(String id) throws Exception;
 
 	//글 id로 조회
-	List<BoardDto> boardsearch_id(String id) throws Exception;
+	List<BoardDto> boardsearch_id(String keyword) throws Exception;
 
 	//글 title로 조회
 	boolean boardsearch_title(BoardDto dto) throws Exception;
 
 	//내가 쓴 글 조회
-	boolean boardsearch_mine(BoardDto dto) throws Exception;
+	List<BoardDto> boardsearch_mine(String id) throws Exception;
 
 //	//댓글 조회
 //	List<CommentDto> Commentselect(CommentDto dto) throws Exception;

@@ -23,6 +23,7 @@ import Controller.member.auth.JoinController;
 import Controller.member.auth.LoginController;
 import Controller.member.auth.LogoutController;
 
+@SuppressWarnings("serial")
 public class FrontController extends HttpServlet {
 
 	private Map<String, SubController> map = new HashMap();
@@ -52,7 +53,8 @@ public class FrontController extends HttpServlet {
         map.put(projectPath + "/logout.do", new LogoutController());
 
         // Mypage
-        map.put(projectPath + "/mypage.do", new MemberPageController());
+        map.put(projectPath + "/member/mypage.do", new MemberPageController());
+ 
 
         // Main
         map.put(projectPath + "/main.do", new MainController());

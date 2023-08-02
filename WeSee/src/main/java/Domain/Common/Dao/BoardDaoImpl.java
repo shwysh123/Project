@@ -78,23 +78,26 @@ public class BoardDaoImpl extends ConnectionPool implements BoardDao {
 
 //	id 나 title로 글 조회
 	@Override
-	public List<BoardDto> search_id(String id) throws Exception {
+	public List<BoardDto> search_id(String keyword) throws Exception {
+		System.out.println("boardSearchDaoImpl's search_id!");
 		List<BoardDto> list = new ArrayList();
 		BoardDto dto = null;
 		pstmt = conn.prepareStatement("select * from tbl_board where id = ?");
-		pstmt.setString(1, id);
+		pstmt.setString(1, keyword);
 		rs = pstmt.executeQuery();
 		if (rs != null) {
-			rs.next();
-			dto = new BoardDto();
-			dto.setNumber(rs.getInt("number"));
-			dto.setId(rs.getString("id"));
-			dto.setDate(rs.getString("date"));
-			dto.setHits(rs.getInt("hits"));
-			dto.setLike(rs.getInt("like"));
-			rs.close();
+			while (rs.next()) {
+				dto = new BoardDto();
+				dto.setNumber(rs.getInt("number"));
+				dto.setId(rs.getString("id"));
+				dto.setContents(rs.getString("contents"));
+				dto.setDate(rs.getString("date"));
+				dto.setHits(rs.getInt("hits"));
+				dto.setLike(rs.getInt("like"));
+				list.add(dto);
+			}
 		}
-		pstmt.close();
+		System.out.println(list);
 		return list;
 	}
 
@@ -122,21 +125,24 @@ public class BoardDaoImpl extends ConnectionPool implements BoardDao {
 //	내가 쓴 글 조회
 	@Override
 	public List<BoardDto> search_mine(String id) throws Exception {
+		System.out.println("id:" +id);
 		List<BoardDto> list = new ArrayList();
 		BoardDto dto = null;
 		pstmt = conn.prepareStatement("select * from tbl_board where id = ?");
 		pstmt.setString(1, id);
 		rs = pstmt.executeQuery();
-		if (rs != null) {
-			rs.next();
+		while (rs.next()) {
 			dto = new BoardDto();
 			dto.setNumber(rs.getInt("number"));
 			dto.setId(rs.getString("id"));
+			dto.setContents(rs.getString("contents"));
 			dto.setDate(rs.getString("date"));
 			dto.setHits(rs.getInt("hits"));
 			dto.setLike(rs.getInt("like"));
-			rs.close();
-		}
+			list.add(dto);
+			
+		}rs.close();
+		System.out.println(list);
 		pstmt.close();
 		return list;
 	}
@@ -152,12 +158,12 @@ public class BoardDaoImpl extends ConnectionPool implements BoardDao {
 
 //	내가 쓴 글 삭제
 	@Override
-	public int delete(String id) throws Exception {
+	public boolean delete(String id) throws Exception {
 		pstmt = conn.prepareStatement("delete from tbl_board where id = ?");
 		pstmt.setString(1, id);
 		int result = pstmt.executeUpdate();
 		pstmt.close();
-
+		//로그인을했다면 tbl_board에서 로그인한 아이디로 삭제가능좀....
 		return result;
 	}
 

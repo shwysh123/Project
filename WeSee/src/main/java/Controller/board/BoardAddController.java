@@ -2,13 +2,16 @@ package Controller.board;
 
 import java.io.IOException;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import Controller.SubController;
 import Domain.Common.Dto.BoardDto;
 import Domain.Common.Service.BoardService;
 import Domain.Common.Service.BoardServiceImpl;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import Domain.Common.Service.MemberService;
+import Domain.Common.Service.MemberServiceImpl;
 
 public class BoardAddController implements SubController {
 
@@ -22,7 +25,7 @@ public class BoardAddController implements SubController {
 		if (req.getMethod().equals("GET")) {
 			try {
 				System.out.println("get req들어옴");
-				req.getRequestDispatcher("/WEB-INF/view/board/add.jsp").forward(req, resp);
+				req.getRequestDispatcher("/add.jsp").forward(req, resp);
 				return;
 			} catch (ServletException e) {
 				// TODO Auto-generated catch block
@@ -50,7 +53,7 @@ public class BoardAddController implements SubController {
 
 			 // BoardDto 객체 생성하여 title과 contents를 담음
 	        BoardDto dto = new BoardDto();
-	        dto.setTitle(title);
+	      
 	        dto.setContents(contents);
 	        System.out.println(title+" "+contents);
 

@@ -18,7 +18,7 @@ public class ConnectionPool {
 	
 	public ConnectionPool(){
 		id="root";
-		pw="1234";
+		pw="dhrgml!8sus";
 		url="jdbc:mysql://localhost:3306/게시판";
 		
 		try {

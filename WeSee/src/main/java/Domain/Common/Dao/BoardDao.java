@@ -17,7 +17,7 @@ public interface BoardDao {
 	BoardDto select_one(int number) throws Exception;
 
 	// id 나 title로 글 조회
-	List<BoardDto> search_id(String id) throws Exception;
+	List<BoardDto> search_id(String keyword) throws Exception;
 
 	List<BoardDto> search_title(String title) throws Exception;
 
@@ -28,6 +28,6 @@ public interface BoardDao {
 	int update(BoardDto dto) throws Exception;
 
 	// 내가 쓴 글 삭제
-	int delete(String id) throws Exception;
+	boolean delete(String id) throws Exception;
 
 }

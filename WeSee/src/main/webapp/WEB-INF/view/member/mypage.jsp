@@ -46,30 +46,37 @@ body {
 
 	<div class="wrapper">
 		<header>
-			<div class="top--header">게시물 검색</div>
+			<div class="top--header">게시물 수정</div>
 			<nav></nav>
 		</header>
 		<main>
 			<section>
 				<div class=show--block>
-					<form action="board/search.do" method="post">
-						<input type="text" name="keyword" placeholder="검색어를 입력하세요"> 
-						<button type="submit">검색</button>
+					<!-- 로그인한 회원의 아이디 출력 -->
+					<h2>회원 정보</h2>
+					<p>회원 아이디: ${memberId}</p>
+
+					<!-- 로그인한 회원이 작성한 게시물 표시 -->
+					<h2>작성한 게시물 목록</h2>
+					<form action="member/mypage.do" method="post">
+						<button type="submit">수정</button>
 					</form>
 					<hr>
 					<div>
 						<h2>검색 결과</h2>
-						<c:if test="${not empty searchResult}">
+						<c:if test="${not empty posts}">
 							<table border="1">
 								<tr>
 									<th>글 번호</th>
-									<th>제목</th>
 									<th>작성자</th>
+									<th>제목</th>
 									<th>작성날짜</th>
 									<th>조회수</th>
 									<th>좋아요</th>
+									<th>수정</th>
+									<th>삭제</th>
 								</tr>
-								<c:forEach items="${searchResult}" var="board">
+								<c:forEach items="${posts}" var="board">
 									<tr>
 										<td>${board.number}</td>
 										<td>${board.id}</td>
@@ -77,12 +84,30 @@ body {
 										<td>${board.date}</td>
 										<td>${board.hits}</td>
 										<td>${board.like}</td>
+										<td>
+											<form action="board/update.do" method="post">
+												<!-- 수정 페이지로 이동하는 폼 추가 -->
+												<input type="hidden" name="boardNumber"
+													value="${board.number}" />
+												<button type="submit">수정</button>
+											</form>
+										</td>
+										<td>
+
+											<form action="board/delete.do" method="post">
+												<!-- 삭제 기능을 수행하는 폼 추가 -->
+												<input type="hidden" name="boardNumber"
+													value="${board.number}" />
+												<button type="submit">삭제</button>
+											
+											</form>
+										</td>
 									</tr>
 								</c:forEach>
 							</table>
 						</c:if>
-						<c:if test="${not empty searchMessage}">
-							<p>${searchMessage}</p>
+						<c:if test="${not empty posts}">
+							<p>작성한 게시물이 없습니다.</p>
 						</c:if>
 					</div>
 					<div></div>

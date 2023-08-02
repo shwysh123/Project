@@ -2,9 +2,9 @@ package Controller;
 
 import java.io.IOException;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class MainController implements SubController{
 
@@ -19,7 +19,7 @@ public class MainController implements SubController{
 		
 		//4 View 이동
 		try {
-			req.getRequestDispatcher("/WEB-INF/view/BoardDelete.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/view/main.jsp").forward(req, resp);
 		
 		
 		

@@ -1,13 +1,13 @@
 package Domain.Common.Service;
 
 import java.util.List;
-import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import Domain.Common.Dao.BoardDao;
 import Domain.Common.Dao.BoardDaoImpl;
 //import Domain.Common.Dao.CommentDao;
 import Domain.Common.Dto.BoardDto;
-import Domain.Common.Dto.MemberDto;
 
 public class BoardServiceImpl implements BoardService{
 
@@ -50,9 +50,9 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	// 글 id로 조회
-	public List<BoardDto> boardsearch_id(String id) throws Exception {
+	public List<BoardDto> boardsearch_id(String keyword) throws Exception {
 		System.out.println("BoardService's boardsearch()");
-		return Bdao.search_id(id);
+		return Bdao.search_id(keyword);
 	}
 
 	// 글 title로 조회
@@ -92,15 +92,17 @@ public class BoardServiceImpl implements BoardService{
 	// 이거 선생님말듣고 수정 0704 박영민 13:17
 	public boolean boardDelete(String id) throws Exception {
 		System.out.println("BoardService's boardDelete()");
-//		String role = memberService.getRole(id);
-//		Session session = (Session) memberService.sessionMap.get(id);
-//		Map<String, Object> results = memberService.login("id", "pw");
-//
-//		if (session.getId().equals(id) || role == "MASTER") {
-//			int result = Bdao.delete(id);
-//			if (result > 0)
-//				return true;
-//		}
+		String boardid = "BoardID";
+		Session session = (Session) memberService.sessionMap.get(id);
+		Map<String, Object> results = memberService.login("id", "pw");
+		
+		//로그인된 사용자의 ID를 가져와야함.. 그냥 로그인한 상태면 삭제할수있다 라는 기본베이스..
+		//그리고 로그인된 사용자가 마이페이지에서 삭제할수가있음..
+		if (boardid.equals(id)) {
+			int result = Bdao.delete(id); // 이건 삭제수행
+			if (result > 0);
+				
+		}else
 		return false;
 	}
 
@@ -108,18 +110,6 @@ public class BoardServiceImpl implements BoardService{
 	public boolean boardsearch_title(BoardDto dto) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
-	}
-
-	@Override
-	public boolean boardsearch_mine(BoardDto dto) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public List<BoardDto> getAllBoard(String keyfield, String keyword, String criteria) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 

@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,34 +52,20 @@ body {
 </style>
 </head>
 <body>
+<%-- 
+	<div class="post">
+        <p><strong>게시물 ID:</strong> <%= id %></p>
+        <p><strong>내용:</strong> <%= contents %></p>
+        <p><strong>날짜:</strong> <%= date %></p>
+        <form action="/deletePost.jsp" method="post">
+            <input type="hidden" name="number" value="<%= number %>">
+            <input type="submit" value="삭제">
+        </form>
+    </div>
 
-	<div class="wrapper">
-		<header>
-		<h1><a href="/WeSee/">WeSee</a></h1>
-			<nav></nav>
-		</header>
-		<main>
+ --%>
+
 		
-			<section>
-				<div class=show--block>
-														
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-				</div>
-
-
-
-			</section>
-			<section></section>
-			<section></section>
-		</main>
-		<footer></footer>
-	</div>
-
 
 </body>
 </html>
